@@ -8,14 +8,14 @@ public class Post {
 	private int countOfLikes;
 	
 	public Post() {
-		msg = "";
-		datetime = LocalDateTime.now();
+		setMsg("Sveiciens!");
+		setDateTime();
 		countOfLikes = 0;
 	}
 	
 	public Post(String msg) {
 		setMsg(msg);
-		datetime = LocalDateTime.now();
+		setDateTime();
 		countOfLikes = 0;
 	}
 
@@ -35,7 +35,7 @@ public class Post {
 		return datetime;
 	}
 
-	public void setDate() {
+	public void setDateTime() {
 		datetime = LocalDateTime.now();
 	}
 
@@ -47,9 +47,9 @@ public class Post {
 		countOfLikes++;
 	}
 
-	@Override
 	public String toString() {
-		return "Post [msg=" + msg + ", date=" + date + ", countOfLikes=" + countOfLikes + "]";
+		String result = msg + " (" + datetime + "), " + countOfLikes + " patik iezimes";
+		return result;
 	}
 	
 }
