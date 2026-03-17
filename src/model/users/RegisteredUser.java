@@ -6,11 +6,10 @@ import java.security.NoSuchAlgorithmException;
 
 import model.*;
 
-public abstract class User extends GuestUser {
-	private String nameAndSurname;
+public abstract class RegisteredUser extends GuestUser {
 	private String username;
 	private String password;
-	
+	private String title; //privatajam lietotajam vards un uzvards, biznesa lietotajam - kompanijas nosaukums
 	
 	//https://www.geeksforgeeks.org/java/md5-hash-in-java/
     public static String getMd5(String input)
@@ -41,24 +40,28 @@ public abstract class User extends GuestUser {
         }
     }
 
-	public User() {
-		nameAndSurname = "";
+	public RegisteredUser() {
+		title = "";
 		username = "";
 		password = "";
 	}
 	
-	public User(String nameAndSurname, String username, String password) {
+	public RegisteredUser(String nameAndSurname, String username, String password) {
 		this.nameAndSurname = nameAndSurname;
 		this.username = username;
 		this.password = getMd5(password);
 	}
 
-	public String getNameAndSurname() {
-		return nameAndSurname;
+	public String getTitle() {
+		return title;
 	}
 
-	public void setNameAndSurname(String nameAndSurname) {
-		this.nameAndSurname = nameAndSurname;
+	public void setTitle(String title) {
+		if(title != null && !title.isEmpty() && title.matches("[A-Za-z0-9]{4,20}")) {
+			this.title = title;
+		} else {
+			titl
+		}
 	}
 
 	public String getUsername() {
@@ -66,7 +69,11 @@ public abstract class User extends GuestUser {
 	}
 
 	public void setUsername(String username) {
-		this.username = username;
+		if(username != null && !username.isEmpty() && username.matches("[A-Za-z0-9]{4,20}")) {
+			this.username = username;
+		} else {
+			username = "";
+		}
 	}
 
 	public String getPassword() {
@@ -74,7 +81,7 @@ public abstract class User extends GuestUser {
 	}
 
 	public void setPassword(String password) {
-		this.password = password;
+		this.password = getMd5(password);
 	}
 
 	@Override

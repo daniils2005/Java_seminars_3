@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import model.*;
 
-public class BusinessUser extends User {
+public class BusinessUser extends RegisteredUser {
 	private ArrayList<Page> listOfPages;
 	
 	BusinessUser(){

@@ -4,18 +4,18 @@ import java.util.ArrayList;
 
 import model.*;
 
-public class PrivateUser extends User{
+public class PrivateUser extends RegisteredUser{
 	private ArrayList<Post> privatePosts;
 	private ArrayList<Post> publicPosts;
-	private ArrayList<User> followers;
+	private ArrayList<RegisteredUser> followers;
 	
 	public PrivateUser(){
 		privatePosts = new ArrayList<Post>();
 		publicPosts = new ArrayList<Post>();
-		followers = new ArrayList<User>();
+		followers = new ArrayList<RegisteredUser>();
 	}
 	
-	public PrivateUser(ArrayList<Post> privatePosts, ArrayList<Post> publicPosts, ArrayList<User> followers) {
+	public PrivateUser(ArrayList<Post> privatePosts, ArrayList<Post> publicPosts, ArrayList<RegisteredUser> followers) {
 		this.privatePosts = privatePosts;
 		this.publicPosts = publicPosts;
 		this.followers = followers;
@@ -37,11 +37,11 @@ public class PrivateUser extends User{
 		this.publicPosts = publicPosts;
 	}
 
-	public ArrayList<User> getFollowers() {
+	public ArrayList<RegisteredUser> getFollowers() {
 		return followers;
 	}
 
-	public void setFollowers(ArrayList<User> followers) {
+	public void setFollowers(ArrayList<RegisteredUser> followers) {
 		this.followers = followers;
 	}
 

@@ -7,20 +7,20 @@ import model.users.*;
 public class Page {
 	private String title;
 	private String description;
-	private ArrayList<User> followers;
+	private ArrayList<RegisteredUser> followers;
 	private ArrayList<Post> postsInPage;
 	
 	public Page(){
 		title = "";
 		description = "";
-		followers = new ArrayList<User>();
+		followers = new ArrayList<RegisteredUser>();
 		postsInPage = new ArrayList<Post>();
 	}
 	
 	public Page(String title, String description) {
 		this.title = title;
 		this.description = description;
-		followers = new ArrayList<User>();
+		followers = new ArrayList<RegisteredUser>();
 		postsInPage = new ArrayList<Post>();
 	}
 
@@ -40,11 +40,11 @@ public class Page {
 		this.description = description;
 	}
 
-	public ArrayList<User> getFollowers() {
+	public ArrayList<RegisteredUser> getFollowers() {
 		return followers;
 	}
 
-	public void setFollowers(ArrayList<User> followers) {
+	public void setFollowers(ArrayList<RegisteredUser> followers) {
 		this.followers = followers;
 	}
 
