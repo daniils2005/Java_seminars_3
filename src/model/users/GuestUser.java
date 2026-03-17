@@ -3,25 +3,24 @@ package model.users;
 import model.*;
 
 public class GuestUser {
-	public int generatedId;
-	public static int counter = 1;
+	public long generatedId;
+	public static long counter = 0;
 
 	public GuestUser() {
-		generatedId = counter;
-		counter++;
+		setGeneratedId();
 	}
 
-	public int getGeneratedId() {
+	public long getGeneratedId() {
 		return generatedId;
 	}
 
-	public void setGeneratedId(int generatedId) {
-		this.generatedId = generatedId;
+	public void setGeneratedId() {
+		generatedId = counter++;
 	}
 
-	@Override
 	public String toString() {
-		return "GuestUser [generatedId=" + generatedId + "]";
+		String result = "" + generatedId;
+		return result;
 	}
 	
 }
