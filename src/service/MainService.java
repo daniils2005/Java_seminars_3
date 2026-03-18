@@ -20,9 +20,17 @@ public class MainService {
 		System.out.println(lietotaji);
 		
 		u2.createAndPublishPost("Sveiciens JAVA nodarbiba!", PostType.publicType);
+		u2.createAndPublishPost("Man loti patik JAVA!", PostType.publicType);
 		u2.createAndPublishPost("Man sodien ir dzimsanas diena", PostType.privateType);
 		System.out.println("---------------------------------------------------");
+		u2.followPrivateUser(u3);
 		System.out.println(lietotaji);
 	}
 
+	public static ArrayList<GuestUser> getLietotaji() {
+		return lietotaji;
+	}
+
+	
+	
 }
