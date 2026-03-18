@@ -3,8 +3,8 @@ package model.users;
 import model.*;
 
 public class GuestUser {
-	public long generatedId;
-	public static long counter = 0;
+	protected long generatedId;
+	private static long counter = 0;
 
 	public GuestUser() {
 		setGeneratedId();
