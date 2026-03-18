@@ -25,7 +25,7 @@ public abstract class RegisteredUser extends GuestUser implements IPostPublish {
 	}
 
 	public void setUsername(String username) {
-		if(username != null && !username.isEmpty() && username.matches("[A-Za-z0-9]{4,20}")) {
+		if(username != null && !username.isEmpty() && username.matches("[A-Za-z0-9.]{4,20}")) {
 			this.username = username;
 		} else {
 			username = "DefaultUser";
@@ -38,15 +38,13 @@ public abstract class RegisteredUser extends GuestUser implements IPostPublish {
 
 	//regex maska parolei no: https://uibakery.io/regex-library/password
 	public void setPassword(String password) {
-		if(password != null && !password.isEmpty() && password.matches("/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/"))
+		if(password != null && !password.isEmpty())
 		
-		try
-		{
+		try {
 			MessageDigest md = MessageDigest.getInstance("MD5");
 			md.update(password.getBytes());
 			this.password = md.digest().toString();
-		}
-		catch (Exception e) {
+		} catch (Exception e) {
 			this.password = "0000";
 		}
 	}

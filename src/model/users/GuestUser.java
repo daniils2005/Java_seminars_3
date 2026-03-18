@@ -4,7 +4,7 @@ import model.*;
 
 public class GuestUser {
 	protected long generatedId;
-	private static long counter = 0;
+	private static long counter = 1;
 
 	public GuestUser() {
 		setGeneratedId();
