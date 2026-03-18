@@ -1,7 +1,10 @@
 package model.users;
 
 import java.security.MessageDigest;
-public class RegisteredUser extends GuestUser {
+
+import service.IPostPublish;
+
+public abstract class RegisteredUser extends GuestUser implements IPostPublish {
 	private String username;
 	private String password;
 
@@ -49,7 +52,7 @@ public class RegisteredUser extends GuestUser {
 	}
 	
 	public String toString() {
-		String result = id + ": " + username + " " + password;
+		String result = generatedId + ": " + username + " " + password;
 		return result;
 	}
 	
