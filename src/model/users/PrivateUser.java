@@ -3,54 +3,47 @@ package model.users;
 import java.util.ArrayList;
 
 import model.*;
+import model.enums.PostType;
 
 public class PrivateUser extends RegisteredUser{
-	private ArrayList<Post> privatePosts;
-	private ArrayList<Post> publicPosts;
-	private ArrayList<RegisteredUser> followers;
+	private ArrayList<Post> allPrivatePosts = new ArrayList<Post>();
+	private ArrayList<Post> allPublicPosts = new ArrayList<Post>();
+	private ArrayList<RegisteredUser> allMyFollowers = new ArrayList<RegisteredUser>();
 	
-	public PrivateUser(){
-		privatePosts = new ArrayList<Post>();
-		publicPosts = new ArrayList<Post>();
-		followers = new ArrayList<RegisteredUser>();
+	public ArrayList<Post> getAllPrivatePosts() {
+		return allPrivatePosts;
+	}
+
+	public ArrayList<Post> getAllPublicPosts() {
+		return allPublicPosts;
+	}
+
+	public ArrayList<RegisteredUser> getAllMyFollowers() {
+		return allMyFollowers;
+	}
+
+	//setteri netiks veidoti, jo nebus iespeja saglabat ieprieks definetus sarakstus ieks si objekta
+	
+	public PrivateUser() {
+		super();//tiek izsaukts registeredUser bezargumenta konstruktors
 	}
 	
-	public PrivateUser(ArrayList<Post> privatePosts, ArrayList<Post> publicPosts, ArrayList<RegisteredUser> followers) {
-		this.privatePosts = privatePosts;
-		this.publicPosts = publicPosts;
-		this.followers = followers;
+	public PrivateUser(String username, String password) {
+		super(username, password);
+	}
+	
+	
+	//super.toString() nozime, ka izsauksies RegisteredUser toString funkcija
+	public String toString() {
+		String result = super.toString() + "sludinajumi:\n -> " + allPrivatePosts + "\n -> " + allPublicPosts + ";\n sekotaji -> " + allMyFollowers; 
+		return result;
 	}
 
-	public ArrayList<Post> getPrivatePosts() {
-		return privatePosts;
-	}
-
-	public void setPrivatePosts(ArrayList<Post> privatePosts) {
-		this.privatePosts = privatePosts;
-	}
-
-	public ArrayList<Post> getPublicPosts() {
-		return publicPosts;
-	}
-
-	public void setPublicPosts(ArrayList<Post> publicPosts) {
-		this.publicPosts = publicPosts;
-	}
-
-	public ArrayList<RegisteredUser> getFollowers() {
-		return followers;
-	}
-
-	public void setFollowers(ArrayList<RegisteredUser> followers) {
-		this.followers = followers;
-	}
 
 	@Override
-	public String toString() {
-		return "PrivateUser [followers=" + followers + "]";
-	}
-	
-	public void followPrivateUser(){
+	public void createAndPublishPost(String msg, PostType inputPostType) {
+		// TODO Auto-generated method stub
 		
 	}
+	
 }
